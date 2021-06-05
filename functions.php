@@ -15,7 +15,9 @@ HTML;
 function nav_menu(string $linkClass = ''): string {
   return 
     nav_item('/index.php', 'Accueil', $linkClass) . 
-    nav_item('/menu.php', 'Menu', $linkClass) . 
+    nav_item('/pays.php', 'Pays', $linkClass) . 
+    nav_item('/jeu.php', 'Glace', $linkClass) . 
+    nav_item('/newsletter.php', 'S\'inscrire', $linkClass) . 
     nav_item('/contact.php', 'Contact', $linkClass);
 }
 
@@ -73,4 +75,9 @@ function in_creneaux(int $heure, array $creneaux): bool {
     }
   }
   return false;
+}
+
+function add_mail() {
+  $fichier = 'emails/' . date('Y-m-d');
+  $resource = file_put_contents($fichier, 'lewisgadea@gmail.com');
 }
