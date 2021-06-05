@@ -1,5 +1,5 @@
 <?php
-require_once 'functions.php';
+require_once 'functions.php'; 
 $title = 'Nos pays';
 $monde = file(__DIR__ . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'pays.csv');
 $monde = str_replace('"', '', $monde);
