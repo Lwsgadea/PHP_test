@@ -1,6 +1,8 @@
 <?php
-require 'functions/compteur.php';
-require 'functions.php';
+require_once 'functions/auth.php';
+forcer_utilisateur_connecte();
+require_once 'functions/compteur.php';
+require_once 'functions.php';
 $title = 'dashboard.php';
 $total = nombre_vues();
 $annee = (int)date('Y');
@@ -26,7 +28,7 @@ $mois = [
   '11' => 'Novembre',
   '12' => 'Décembre',
 ];
-require 'elements/header.php'; 
+require_once 'elements/header.php'; 
 ?>
 
 <div class="row">
@@ -72,4 +74,4 @@ require 'elements/header.php';
   </div>
 </div>
 
-<?php require 'elements/footer.php'; ?>
+<?php require_once 'elements/footer.php'; ?>
