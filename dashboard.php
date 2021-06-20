@@ -1,6 +1,8 @@
 <?php
-require 'functions/compteur.php';
-require 'functions.php';
+require_once 'functions/auth.php';
+forcer_utilisateur_connecte();
+require_once 'functions/compteur.php';
+require_once 'functions.php';
 $title = 'dashboard.php';
 $total = nombre_vues();
 $annee = (int)date('Y');
@@ -28,6 +30,7 @@ $mois = [
 ];
 require 'elements/header.php'; 
 ?>
+
 
 <div class="row">
   <div class="col-md-4">
