@@ -28,7 +28,7 @@ $mois = [
   '11' => 'Novembre',
   '12' => 'Décembre',
 ];
-require 'elements/header.php'; 
+require_once 'elements/header.php'; 
 ?>
 
 
@@ -75,4 +75,4 @@ require 'elements/header.php';
   </div>
 </div>
 
-<?php require 'elements/footer.php'; ?>
+<?php require_once 'elements/footer.php'; ?>
