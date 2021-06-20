@@ -2,8 +2,10 @@
 require_once 'functions.php';
 $title = 'Authentification';
 $erreur = null;
+$password = '$2y$12$Fooh05G1uGYS5AXL952DhOF3RQdjfFcZ67HqjPykTkKYqZKhaFhVS';
 if(!empty($_POST['pseudo']) && !empty($_POST['password'])) {
-  if($_POST['pseudo'] === 'John' && $_POST['password'] === 'Doe') {
+  if($_POST['pseudo'] === 'John' && password_verify($_POST['password'], $password)) {
+
     session_start();
     $_SESSION['connecte'] = 1;
     header('Location: /dashboard.php');
