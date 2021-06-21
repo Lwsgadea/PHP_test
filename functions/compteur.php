@@ -4,7 +4,6 @@ function ajouter_vue(): void {
   $fichier_journalier = $fichier . '-' . date('Y-m-d');
   incrementer_compteur($fichier);
   incrementer_compteur($fichier_journalier);
-
 }
 
 function incrementer_compteur(string $fichier): void {
