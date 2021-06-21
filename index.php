@@ -1,6 +1,6 @@
 <?php 
 $title = "Page d'accueil";
-require 'header.php'; ?>
+require 'elements/header.php'; ?>
 
 
 <main class="container">
@@ -11,4 +11,4 @@ require 'header.php'; ?>
   </div>
 
 
-<?php require 'footer.php'; ?>
+<?php require 'elements/footer.php'; ?>

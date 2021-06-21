@@ -15,36 +15,10 @@ HTML;
 function nav_menu(string $linkClass = ''): string {
   return 
     nav_item('/index.php', 'Accueil', $linkClass) . 
-    nav_item('/menu.php', 'Menu', $linkClass) . 
+    nav_item('/pays.php', 'Pays', $linkClass) . 
+    nav_item('/jeu.php', 'Glace', $linkClass) . 
+    nav_item('/newsletter.php', 'S\'inscrire', $linkClass) . 
     nav_item('/contact.php', 'Contact', $linkClass);
-}
-
-function checkbox(string $name, string $value, array $data): string {
-  $attributes = '';
-  if(isset($data[$name]) && in_array($value, $data[$name])) {
-    $attributes .= 'checked';
-  }
-  return <<<HTML
-    <input type="checkbox" name="{$name}[]" value="$value" $attributes>
-HTML;
-}
-
-function radio(string $name, string $value, array $data): string {
-  $attributes = '';
-  if(isset($data[$name]) && $value === $data[$name]) {
-    $attributes .= 'checked';
-  }
-  return <<<HTML
-    <input type="radio" name="{$name}" value="$value" $attributes>
-HTML;
-}
-
-function select(string $name, $value, array $options): string {
-  foreach($options as $k => $option) {
-    $attributes = $k == $value ? ' selected' : '';
-    $html_options[] = "<option value='$k' $attributes>$option</option>";
-  }
-  return "<select class='form-control' name='$name'>" .  implode($html_options) . "</select>";
 }
 
 function dump($variable) {
@@ -73,4 +47,9 @@ function in_creneaux(int $heure, array $creneaux): bool {
     }
   }
   return false;
+}
+
+function add_mail() {
+  $fichier = 'emails/' . date('Y-m-d');
+  $resource = file_put_contents($fichier, 'lewisgadea@gmail.com');
 }
