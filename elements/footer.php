@@ -18,7 +18,7 @@
           <input type="email"
                 name="email"
                 placeholder="Entrez votre adresse mail"
-                class="form-control"
+                class="form-control mb-1"
                 required>
           <button type="submit" class="btn btn-primary">Confirmer l'email</button>
         </form>
