@@ -13,12 +13,12 @@
       Il y a eu <?= $vues ?> visite<?php if($vues > 1): ?>s<?php endif ?> sur le site .
     </div>
     <div class="col-md-4">
-      <?php if($title !== 'Adhérer à la newsletter'): ?>
+      <?php if(isset($title) && $title !== 'Adhérer à la newsletter'): ?>
         <form action="/newsletter.php" method="POST">
           <input type="email"
                 name="email"
                 placeholder="Entrez votre adresse mail"
-                class="form-control"
+                class="form-control mb-1"
                 required>
           <button type="submit" class="btn btn-primary">Confirmer l'email</button>
         </form>
