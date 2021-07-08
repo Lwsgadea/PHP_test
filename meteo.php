@@ -4,9 +4,6 @@ require 'class/OpenWeather.php';
 $title = 'Météo';
 $weather = new OpenWeather('93105a5d5d6578b125296f230a1570fe');
 $forecast = $weather->getForecast(48.8534, 2.3488);
-if(isset($_POST['coordinates'])) {
-  
-}
 $hour_temp = [];
 $hour_time = [];
 foreach($forecast[0][1] as $hour) {
@@ -25,7 +22,8 @@ require 'elements/header.php';
   <div>
     <ul>
       <?php foreach($forecast[0][2] as $days): ?>
-        <li><?= $days['time']->format('l d/m/y') . ': ' . $days['description'] . ', ' . ($days['min-temperature'] + $days['max-temperature']) / 2 . '°C' ?></li>
+        <?php dump(new DateTime($days['time']->format('D m'))) ?>
+        <li><?= date_fr($format, $days['time']->format('DD m')) . ': ' . $days['description'] . ', ' . ($days['min-temperature'] + $days['max-temperature']) / 2 . '°C' ?></li>
       <?php endforeach ?>
     </ul>
   </div>
@@ -58,6 +56,7 @@ require 'elements/header.php';
       }
     }
   });
+
 </script>
 
 <?php require 'elements/footer.php'; ?>

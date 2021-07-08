@@ -1,4 +1,4 @@
-var title = document.title;
+/* var title = document.title;
 var coordinates = [];
 
 if(title = "Météo" && navigator.geolocation) {
@@ -17,11 +17,11 @@ function erreur(error) {
       console.log('Réponse trop lente');
       break;
   }
-
 }
 
 function callback(position) {
   var lat = position.coords.latitude;
   var lng = position.coords.longitude;
   coordinates = JSON.stringify([lat, lng]);
-}
+  meteo.reload(lat, lng);
+} */
