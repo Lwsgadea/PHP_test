@@ -2,6 +2,7 @@
 require_once 'class/Form.php';
 require_once 'data/config.php';
 require_once 'functions.php';
+require_once 'class/Form.php';
 $title = 'Page de contact';
 date_default_timezone_set('Europe/Paris');
 $jour = (int)($_GET['jour'] ?? date('N') -1);
@@ -19,7 +20,8 @@ require 'elements/header.php'; ?>
     </div>
     <div class="col-md-4">
       <h2>Horaires d'ouverture</h2>
-      <?php if($ouvert = true): ?>
+      <?php if($ouvert): ?>
+
         <div class="alert alert-success">
           Le magasin sera ouvert
         </div>
@@ -36,7 +38,7 @@ require 'elements/header.php'; ?>
         <div class="form-group mb-1">
           <input type="number" name="heure" value="<?= $heure ?>">
         </div>
-        <button class="btn btn-primary" type="submit">Vérifier si le magasin est ouvert</button>
+        <button class="btn btn-primary mb-1" type="submit">Voir si le magasin est ouvert</button>
       </form>
       <ul>
         <?php foreach(JOURS as $k => $jour): ?>

@@ -4,25 +4,39 @@ $title = 'Adhérer à la newsletter';
 $error = null;
 $success = null;
 $email = null;
-if(isset($_POST['email'])) {
+$path = './emails';
+$files = [];
+$lastFile = '';
+if(is_dir($path)) {
+  if($dh = opendir($path)) {
+    while(($file = readdir($dh)) !== false) {
+      if($file !== "." && $file !== "..") {
+        $files[] .= $file; 
+      }
+    }
+    $lastFile = './emails' . DIRECTORY_SEPARATOR . end($files);
+    closedir($dh);
+  }
+}
+/* if(isset($_POST['email'])) {
   $email = $_POST['email'];
   if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $fichier = __DIR__ . DIRECTORY_SEPARATOR . 'emails' . DIRECTORY_SEPARATOR . date('Y-m-d');
     $resource = file_put_contents($fichier, $email . PHP_EOL, FILE_APPEND);
-    $success = "Email enregistré";
+    mail($email, "Inscription à la newsletter L. Gadea", "Bonjour, \nMerci de vous être inscrit à notre newsletter. \n\nCordialement, \n\nLewis Gadea", );
+    $success = "Adresse mail enregistrée et courrier de bienvenue envoyé !";
     $email = null;
   } else {
     $error = "Email invalide";
   }
-  
-}
+} */
 require_once 'elements/header.php';
 ?>
 
 <div class="container">
   <h1>Inscription à la newsletter</h1>
 
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus quod ipsum corporis ea nisi esse recusandae dolorem inventore amet autem, ex aperiam accusamus saepe quae? Laudantium est repellat reiciendis deleniti?</p>
+  <p>Inscrivez-vous à notre newsletter en entrant votre addresse mail. Vous pouvez vérifier votre inscription dans ce fichier (un nouveau créé chaque jour, essayez demain!) en cliquant ici : <a href="<?= $lastFile ?>" target="_blank">fichier du <?= end($files) ?></a></p>
 
   <?php if($error): ?>
     <div class="alert alert-danger">

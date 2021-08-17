@@ -1,5 +1,6 @@
 <?php
 require './class/Form.php';
+require_once 'functions.php';
 $parfums = [
   'Fraise' => 4,
   'Vanille' => 5,
@@ -60,7 +61,7 @@ require 'elements/header.php';
     <div class="col-md-8">
       <form action="/jeu.php" method="GET">
         <div class="form-group">
-          <h3>Choisissez vos parfum</h3>
+          <h3 class="mt-3">Choisissez vos parfum</h3>
           <?php foreach($parfums as $parfum => $prix): ?>
             <div class="parfum">
               <label>
@@ -68,7 +69,7 @@ require 'elements/header.php';
               </label>
             </div>
           <?php endforeach ?>
-          <h3>Choisissez votre contenant</h3>
+          <h3 class="mt-3">Choisissez votre contenant</h3>
           <?php foreach($cornets as $cornet => $prix): ?>
             <div class="cornet">
               <label>
@@ -76,7 +77,7 @@ require 'elements/header.php';
               </label>
             </div>
           <?php endforeach ?>
-          <h3>Choisissez vos suppléments désirés</h3>
+          <h3 class="mt-3">Choisissez vos suppléments désirés</h3>
           <?php foreach($supplements as $supplement => $prix): ?>
             <div class="supplements">
               <label>
@@ -85,11 +86,10 @@ require 'elements/header.php';
             </div>
           <?php endforeach ?>
         </div>
-        <button type="submit" class="btn btn-primary mt-1">Valider la glace</button>
+        <button type="submit" class="btn btn-primary mt-3">Valider la glace</button>
       </form>
     </div>
   </div>
-</div>
-
+  </div>
 
 <?php require 'elements/footer.php';

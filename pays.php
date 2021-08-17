@@ -10,25 +10,26 @@ foreach($monde as $k => $pays) {
 require 'elements/header.php';
 ?>
 
-<h1>Liste des Pays</h1>
-
 <div class="container">
-  <div class="row">
-    <?php foreach($monde as $pays): ?>
-      <div class="card col-sm-5 border-primary m-1">
-        <div class="card-body">
-          <h4 class="card-title"><strong><?= $pays[4] ?></strong></h4>
-          <h6 class="card-subtitle mb-2 text-muted"><?= $pays[5] ?> (eng)</h6>
-          <p class="card-text">
-            <ul>
-              <li>code ISO 3166-1 numérique : <?= $pays[1] ?></li>
-              <li>code ISO 3166-1 alpha2 : <?= $pays[2] ?></li>
-              <li>code ISO 3166-1 alpha3 : <?= $pays[3] ?></li>
-            </ul>
-          </p>
-        </div>
+<h1>Liste des Pays</h1>
+<p>Les données de cette page sont prises à partir du fichier <a href="data/pays.csv">pays.csv</a>, le traitement est automatisé pour donner ce rendu. </p>
+<div class="row">
+  <?php foreach($monde as $pays): ?>
+    <div class="card col-sm-5 border-primary m-1">
+      <div class="card-body">
+        <h4 class="card-title"><strong><?= $pays[4] ?></strong></h4>
+        <h5 class="card-subtitle mb-2 text-muted"><?= $pays[5] ?> (eng)</h5>
+        <p class="card-text">
+          <h6>Codes ISO :</h6>
+          <ul>
+            <li>numérique : <?= $pays[1] ?></li>
+            <li>alpha2 : <?= $pays[2] ?></li>
+            <li>alpha3 : <?= $pays[3] ?></li>
+          </ul>
+        </p>
       </div>
-    <?php endforeach ?>
-  </div>
+    </div>
+  <?php endforeach ?>
+</div>
 </div>
 <?php require_once 'elements/footer.php'; ?>
