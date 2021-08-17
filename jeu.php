@@ -39,6 +39,7 @@ foreach(['parfum', 'supplement', 'cornet'] as $name) {
 }
 require 'elements/header.php';
 ?>
+
 <div class="container">
   <h1>Composez votre glace</h1>
   <div class="row">
@@ -52,7 +53,7 @@ require 'elements/header.php';
           <?php endforeach ?>
         </ul>
         <p>
-          <strong>Prix : </strong><?= $total ?>
+          <strong>Prix : </strong><?= $total ?>€
         </p>
         </div>
       </div>
@@ -90,6 +91,5 @@ require 'elements/header.php';
     </div>
   </div>
   </div>
-
 
 <?php require 'elements/footer.php';

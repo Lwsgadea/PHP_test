@@ -1,8 +1,9 @@
 <?php
-$title = 'Page de contact';
+require_once 'class/Form.php';
 require_once 'data/config.php';
 require_once 'functions.php';
 require_once 'class/Form.php';
+$title = 'Page de contact';
 date_default_timezone_set('Europe/Paris');
 $jour = (int)($_GET['jour'] ?? date('N') -1);
 $heure = (int)($_GET['heure'] ?? date('G'));
@@ -20,6 +21,7 @@ require 'elements/header.php'; ?>
     <div class="col-md-4">
       <h2>Horaires d'ouverture</h2>
       <?php if($ouvert): ?>
+
         <div class="alert alert-success">
           Le magasin sera ouvert
         </div>
