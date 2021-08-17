@@ -2,33 +2,35 @@
 
 <hr>
 <footer>
-  <div class="row">
-    <div class="col-md-4">
-      <?php
-      require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Compteur.php';
-      $compteur = new Compteur(dirname(__DIR__) . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'compteur');
-      $compteur->incrementer();
-      $vues = $compteur->recuperer();
-      ?>
-      Il y a eu <?= $vues ?> visite<?php if($vues > 1): ?>s<?php endif ?> sur le site .
-    </div>
-    <div class="col-md-4">
-      <?php if($title !== 'Adhérer à la newsletter'): ?>
-        <form action="/newsletter.php" method="POST">
-          <input type="email"
-                name="email"
-                placeholder="Entrez votre adresse mail"
-                class="form-control"
-                required>
-          <button type="submit" class="btn btn-primary">Confirmer l'email</button>
-        </form>
-      <?php endif ?>
-    </div>
-    <div class="col-md-4">
-      <h5>Navigation</h5>
-      <ul class="list-unstyled text-small">
-        <?= nav_menu() ?>
-      </ul>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <?php
+        require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Compteur.php';
+        $compteur = new Compteur(dirname(__DIR__) . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'compteur');
+        $compteur->incrementer();
+        $vues = $compteur->recuperer();
+        ?>
+        Il y a eu <?= $vues ?> visite<?php if($vues > 1): ?>s<?php endif ?> sur le site .
+      </div>
+      <div class="col-md-4">
+        <?php if($title !== 'Adhérer à la newsletter'): ?>
+          <form action="/newsletter.php" method="POST">
+            <input type="email"
+                  name="email"
+                  placeholder="Entrez votre adresse mail"
+                  class="form-control mb-1"
+                  required>
+            <button type="submit" class="btn btn-primary">Confirmer l'email</button>
+          </form>
+        <?php endif ?>
+      </div>
+      <div class="col-md-4">
+        <h5>Navigation</h5>
+        <ul class="list-unstyled text-small">
+          <?= nav_menu() ?>
+        </ul>
+      </div>
     </div>
   </div>
 </footer>
