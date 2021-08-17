@@ -18,18 +18,19 @@ if(is_dir($path)) {
     closedir($dh);
   }
 }
-/* if(isset($_POST['email'])) {
+if(isset($_POST['email'])) {
   $email = $_POST['email'];
   if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $fichier = __DIR__ . DIRECTORY_SEPARATOR . 'emails' . DIRECTORY_SEPARATOR . date('Y-m-d');
     $resource = file_put_contents($fichier, $email . PHP_EOL, FILE_APPEND);
-    mail($email, "Inscription à la newsletter L. Gadea", "Bonjour, \nMerci de vous être inscrit à notre newsletter. \n\nCordialement, \n\nLewis Gadea", );
-    $success = "Adresse mail enregistrée et courrier de bienvenue envoyé !";
+    /* mail($email, "Inscription à la newsletter L. Gadea", "Bonjour, \nMerci de vous être inscrit à notre newsletter. \n\nCordialement, \n\nLewis Gadea", );
+    $success = "Adresse mail enregistrée et courrier de bienvenue envoyé !"; */
     $email = null;
+    header('Location: /newsletter.php');
   } else {
     $error = "Email invalide";
   }
-} */
+}
 require_once 'elements/header.php';
 ?>
 
