@@ -22,8 +22,7 @@ require 'elements/header.php';
   <div>
     <ul>
       <?php foreach($forecast[0][2] as $days): ?>
-        <?php dump(new DateTime($days['time']->format('D m'))) ?>
-        <li><?= date_fr($format, $days['time']->format('DD m')) . ': ' . $days['description'] . ', ' . ($days['min-temperature'] + $days['max-temperature']) / 2 . '°C' ?></li>
+        <li><?= $days['time']->format('D m') . ': ' . $days['description'] . ', ' . ($days['min-temperature'] + $days['max-temperature']) / 2 . '°C' ?></li>
       <?php endforeach ?>
     </ul>
   </div>
