@@ -55,7 +55,7 @@ function add_mail() {
   $resource = file_put_contents($fichier, 'lewisgadea@gmail.com');
 }
 
-function date_fr($format = 'l j F', $time = null) {
+function date_fr($format, $time = null) {
   dump($format);
   $date = date($format, $time);
 
