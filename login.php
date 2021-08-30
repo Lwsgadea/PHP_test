@@ -22,27 +22,30 @@ if(est_connecte()) {
 }
 require_once 'elements/header.php';
 ?>
+<div class="container">
+  <?php if($erreur): ?>
+    <div class="alert alert-danger"><?= $erreur ?></div>
+  <?php endif ?>
 
-<?php if($erreur): ?>
-  <div class="alert alert-danger"><?= $erreur ?></div>
-<?php endif ?>
-
-<form action="" method="post">
-  <div class="form-group mb-2">
-    <input type="text" 
-           name="pseudo" 
-           class="form-control"
-           placeholder="Nom d'utilisateur">
+  <div class="row">
+    <p>Entrez John et Doe pour vous connecter</p>
   </div>
-  <div class="form-group mb-2">
-    <input type="text" 
-           name="password" 
-           class="form-control"
-           placeholder="Mot de pass">
-  </div>
-  <button type="submit" class="btn btn-primary">Se connecter</button>
-</form>
-
+  <form action="" method="post">
+    <div class="form-group mb-2">
+      <input type="text" 
+            name="pseudo" 
+            class="form-control"
+            placeholder="Nom d'utilisateur">
+    </div>
+    <div class="form-group mb-2">
+      <input type="text" 
+            name="password" 
+            class="form-control"
+            placeholder="Mot de pass">
+    </div>
+    <button type="submit" class="btn btn-primary">Se connecter</button>
+  </form>
+</div>
 
 
 <?php require 'elements/footer.php' ?>
