@@ -1,20 +1,31 @@
 <?php
 require_once 'functions.php';
 require 'class/OpenWeather.php';
+// error_reporting(0);
 $title = 'Météo';
-$weather = new OpenWeather('93105a5d5d6578b125296f230a1570fe');
-$forecast = $weather->getForecast(48.8534, 2.3488);
 $hour_temp = [];
 $hour_time = [];
+$error = null;
+$weather = new OpenWeather('93105a5d5d6578b125296f230a1570fe');
+try {
+  $forecast = $weather->getForecast(48.8534, 2.3488);
+  $today = $weather->getToday('Paris,fr');
+} catch(Exception | Error $e) {
+  $error = $e->getMessage();
+}
 foreach($forecast[0][1] as $hour) {
   $hour_temp[] = $hour['temperature'];
   $hour_time[] = (int)$hour['time']->format('H') . 'h';
 }
-$today = $weather->getToday('Paris,fr');
 require 'elements/header.php';
 ?>
 
-<h1>Météo</h1>
+<?php if($error): ?>
+<div class="container">
+  <div class="alert alert-danger"><?= $error ?></div>
+</div>
+<?php else: ?>
+<h1>Météo</h1> 
 <div class="container">
   <div>
     <h2>En ce moment, <?= $today['description'] . ' ' . $today['temp'] . '°C' ?></h2>
@@ -28,7 +39,7 @@ require 'elements/header.php';
   </div>
 </div>
 <canvas id="myChart" height="150p" width="600"></canvas>
-
+<?php endif ?>
 <script>
   var ctx = document.getElementById('myChart').getContext('2d');
   var myChart = new Chart(ctx, {
