@@ -14,17 +14,17 @@ if(is_dir($path)) {
         $files[] .= $file; 
       }
     }
-    $lastFile = './emails/' . end($files);
+    $lastFile = $files[0];
     closedir($dh);
   }
 }
-if(isset($_POST['email'])) {
+if(isset($_POST['email'])) { 
   $email = $_POST['email'];
   if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    // mail($email, "Inscription à la newsletter L. Gadea", "Bonjour, \nMerci de vous être inscrit à notre newsletter. \n\nCordialement, \n\nLewis Gadea");
     $fichier = __DIR__ . DIRECTORY_SEPARATOR . 'emails' . DIRECTORY_SEPARATOR . date('Y-m-d');
     $resource = file_put_contents($fichier, $email . PHP_EOL, FILE_APPEND);
-    /* mail($email, "Inscription à la newsletter L. Gadea", "Bonjour, \nMerci de vous être inscrit à notre newsletter. \n\nCordialement, \n\nLewis Gadea", );
-    $success = "Adresse mail enregistrée et courrier de bienvenue envoyé !"; */
+    // $success = "Adresse mail enregistrée et courrier de bienvenue envoyé !";
     $email = null;
     header('Location: /newsletter.php');
   } else {
@@ -37,7 +37,7 @@ require_once 'elements/header.php';
 <div class="container">
   <h1>Inscription à la newsletter</h1>
 
-  <p>Inscrivez-vous à notre newsletter en entrant votre addresse mail. Vous pouvez vérifier votre inscription dans ce fichier (un nouveau créé chaque jour, essayez demain!) en cliquant ici : <a href="<?= $lastFile ?>" target="_blank">fichier du <?= end($files) ?></a></p>
+  <p>Inscrivez-vous à notre newsletter en entrant votre addresse mail. Vous pouvez vérifier votre inscription dans ce fichier (un nouveau créé chaque jour, essayez demain!) en cliquant ici : <a href="<?= './emails/' . $lastFile ?>" target="_blank">fichier du <?= $lastFile ?></a></p>
 
   <?php if($error): ?>
     <div class="alert alert-danger">
