@@ -14,7 +14,7 @@ if(is_dir($path)) {
         $files[] .= $file; 
       }
     }
-    $lastFile = './emails' . DIRECTORY_SEPARATOR . end($files);
+    $lastFile = './emails/' . end($files);
     closedir($dh);
   }
 }

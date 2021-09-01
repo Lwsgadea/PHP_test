@@ -15,10 +15,10 @@ require 'elements/header.php';
 <p>Les données de cette page sont prises à partir du fichier <a href="data/pays.csv">pays.csv</a>, le traitement est automatisé pour donner ce rendu. </p>
 <div class="row">
   <?php foreach($monde as $pays): ?>
-    <div class="card col-sm-5 border-primary m-1">
+    <div class="card col-sm-5 border-primary bg-primary m-1">
       <div class="card-body">
         <h4 class="card-title"><strong><?= $pays[4] ?></strong></h4>
-        <h5 class="card-subtitle mb-2 text-muted"><?= $pays[5] ?> (eng)</h5>
+        <h5 class="card-subtitle mb-2 text-dark"><?= $pays[5] ?></h5>
         <p class="card-text">
           <h6>Codes ISO :</h6>
           <ul>

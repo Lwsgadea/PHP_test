@@ -36,7 +36,10 @@ require 'elements/header.php'; ?>
           </select>
         </div>
         <div class="form-group mb-1">
-          <input type="number" name="heure" value="<?= $heure ?>">
+          <input type="number" 
+                 name="heure" 
+                 value="<?= $heure ?>"
+                 class="pl-2">
         </div>
         <button class="btn btn-primary mb-1" type="submit">Voir si le magasin est ouvert</button>
       </form>
