@@ -21,7 +21,10 @@ if(is_dir($path)) {
 if(isset($_POST['email'])) { 
   $email = $_POST['email'];
   if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    // mail($email, "Inscription à la newsletter L. Gadea", "Bonjour, \nMerci de vous être inscrit à notre newsletter. \n\nCordialement, \n\nLewis Gadea");
+    $success = mail($email, "Inscription à la newsletter L. Gadea", "Bonjour, \nMerci de vous être inscrit à notre newsletter. \n\nCordialement, \n\nLewis Gadea");
+    if(!$success) {
+      dump(error_get_last()['message']);
+    }
     $fichier = __DIR__ . DIRECTORY_SEPARATOR . 'emails' . DIRECTORY_SEPARATOR . date('Y-m-d');
     $resource = file_put_contents($fichier, $email . PHP_EOL, FILE_APPEND);
     // $success = "Adresse mail enregistrée et courrier de bienvenue envoyé !";
