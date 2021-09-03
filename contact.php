@@ -6,8 +6,9 @@ require_once 'class/Form.php';
 $title = 'Page de contact';
 date_default_timezone_set('Europe/Paris');
 $jour = (int)($_GET['jour'] ?? date('N') -1);
+dump($jour);
 $heure = (int)($_GET['heure'] ?? date('G'));
-$creneaux = CRENEAUX[date('N') -1];
+$creneaux = CRENEAUX[$jour];
 $ouvert = in_creneaux($heure, $creneaux);
 $color = $ouvert ? 'green' : 'red';
 require 'elements/header.php'; ?>
@@ -36,7 +37,10 @@ require 'elements/header.php'; ?>
           </select>
         </div>
         <div class="form-group mb-1">
-          <input type="number" name="heure" value="<?= $heure ?>">
+          <input type="number" 
+                 name="heure" 
+                 value="<?= $heure ?>"
+                 class="pl-2">
         </div>
         <button class="btn btn-primary mb-1" type="submit">Voir si le magasin est ouvert</button>
       </form>

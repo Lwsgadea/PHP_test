@@ -13,7 +13,7 @@ function ajouter_vue(): void {
 }
 
 /**
- * Ajoute 1 vue au compteur à chaque entrée sur une page du site
+ * Ajoute 1 vue au compteur
  *
  * @param  mixed $fichier
  * @return void
@@ -52,7 +52,7 @@ function nombre_vues_mois(int $annee, int $mois): int {
   foreach($fichiers as $fichier) {
     $total += (int)file_get_contents($fichier);
   }
-  return $total;
+  return $total; 
 }
 
 /**

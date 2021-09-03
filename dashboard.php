@@ -49,13 +49,13 @@ require_once 'elements/header.php';
     </div>
     <div class="col-md-8">
       <div class="card mb-4">
-        <div class="card-body">
+        <div class="card-body bg-primary">
           <strong style="font-size: 3em;"><?= $total ?></strong> visites total
         </div>
       </div>
       <?php if(isset($detail)): ?>
         <h2>Détail des visites pour le mois</h2>
-        <table class="table table-striped">
+        <table class="table table-dark">
           <thead>
             <tr>
               <th>Jour</th>

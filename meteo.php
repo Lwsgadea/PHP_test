@@ -1,15 +1,18 @@
 <?php
 require_once 'functions.php';
-require 'class/OpenWeather.php';
-// error_reporting(0);
+require_once 'class/OpenWeather.php';
+require_once 'class/Form.php';
 $title = 'Météo';
+$weather = new OpenWeather('93105a5d5d6578b125296f230a1570fe');
+$location = (string)($_GET['ville'] ?? 'Paris,fr');
+$latitude = (float)($_GET['latitude'] ?? 48.8534);
+$longitude = (float)($_GET['longitude'] ?? 2.3488);
+$error = null;
 $hour_temp = [];
 $hour_time = [];
-$error = null;
-$weather = new OpenWeather('93105a5d5d6578b125296f230a1570fe');
 try {
-  $forecast = $weather->getForecast(48.8534, 2.3488);
-  $today = $weather->getToday('Paris,fr');
+  $forecast = $weather->getForecast($latitude, $longitude);
+  $today = $weather->getToday($location);
 } catch(Exception | Error $e) {
   $error = $e->getMessage();
 }
@@ -20,13 +23,19 @@ foreach($forecast[0][1] as $hour) {
 require 'elements/header.php';
 ?>
 
+<div class="container">
 <?php if($error): ?>
-<div class="container">
   <div class="alert alert-danger"><?= $error ?></div>
-</div>
 <?php else: ?>
-<h1>Météo</h1> 
-<div class="container">
+  <h1>Météo</h1> 
+  <p>Les données affichées ici sont tirées du site <a href="https://openweathermap.org/" target="_blank">OpenWeather</a> par leur API et sont par défaut sur mon site réglées sur Paris, la première ligne par le nom de la ville au format 'Paris,fr' et en dessous gâce aux coordonnées : latitude et longitude .</p>
+  <p>Si vous souhaitez voir la météo d'une autre ville, modifiez les informations suivantes :</p>
+  <form action="" method="GET">
+    <?= Form::generic('ville', 'Ville', $location) ?>
+    <?= Form::generic('latitude', 'Latitude', $latitude, 'compris entre -90° et 90°') ?>
+    <?= Form::generic('longitude', 'Longitude', $longitude, 'compris entre -180° et 180°') ?>
+    <button class="btn btn-primary mb-1" type="submit">Modifier localisation</button>
+  </form>
   <div>
     <h2>En ce moment, <?= $today['description'] . ' ' . $today['temp'] . '°C' ?></h2>
   </div>
@@ -37,9 +46,10 @@ require 'elements/header.php';
       <?php endforeach ?>
     </ul>
   </div>
-</div>
-<canvas id="myChart" height="150p" width="600"></canvas>
+  <canvas id="myChart" height="150p" width="600"></canvas>
 <?php endif ?>
+</div>
+
 <script>
   var ctx = document.getElementById('myChart').getContext('2d');
   var myChart = new Chart(ctx, {

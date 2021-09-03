@@ -45,7 +45,7 @@ require 'elements/header.php';
   <div class="row">
     <div class="col-md-4">
       <div class="card">
-        <div class="card-body">
+        <div class="card-body bg-primary">
         <h5 class="card-title">votre glace</h5>
         <ul>
           <?php foreach($ingredients as $ingredient): ?>
