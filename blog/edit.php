@@ -1,7 +1,11 @@
 <?php
-$title = 'blog';
+require '../vendor/autoload.php';
 require_once '../functions.php';
 require_once '../pdo.php';
+
+use App\Post;
+
+$title = 'blog';
 $error = null;
 $success = null;
 try {
@@ -43,6 +47,8 @@ require_once '../elements/header.php'; ?>
     </div>
     <button class="btn btn-primary">Sauvegarder</button>
   </form>
+  <p><?= $posts->content->getBody() ?></p>
+
 </div>
 
 

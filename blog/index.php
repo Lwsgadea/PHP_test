@@ -1,5 +1,5 @@
 <?php
-require 'vendor/autoload.php';
+require '../vendor/autoload.php';
 require_once '../functions.php';
 require_once '../pdo.php';
 
@@ -34,7 +34,7 @@ require_once '../elements/header.php'; ?>
       <button class="btn btn-danger btn-sm">Supprimer l'article <?= $post->id ?></button>
     </a>
     <p class="small text-muted">Ecrit le <?= $post->created_at->format('d/m/Y à H:i') ?></p>
-    <p><?= nl2br(htmlentities($post->getExcerpt())) ?></p>
+    <p><?= $post->getBody() ?></p>
   <?php endforeach ?>
   <form action="" method="post">
     <div class="form-group mb-1">
