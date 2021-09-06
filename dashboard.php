@@ -1,8 +1,8 @@
 <?php
 require_once 'functions/auth.php';
-forcer_utilisateur_connecte();
 require_once 'functions/compteur.php';
 require_once 'functions.php';
+forcer_utilisateur_connecte();
 $title = 'dashboard.php';
 $total = nombre_vues();
 $annee = (int)date('Y');
