@@ -1,0 +1,19 @@
+{
+    "name": "user/php_test",
+    "description": "Site vitrine et d'entra\u0000nement au php",
+    "type": "project",
+    "authors": [
+        {
+            "name": "LwsGadea",
+            "email": "lewisgadea@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "class/"
+        }
+    },
+    "require": {
+        "erusev/parsedown": "^1.7"
+    }
+}

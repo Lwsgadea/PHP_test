@@ -1,4 +1,5 @@
 <?php
+namespace App;
 class Form {
 
   public static $class = "form-control";

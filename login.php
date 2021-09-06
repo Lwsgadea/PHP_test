@@ -1,5 +1,6 @@
 <?php
 require_once 'functions.php';
+
 $title = 'Authentification';
 $erreur = null;
 $password = '$2y$12$Fooh05G1uGYS5AXL952DhOF3RQdjfFcZ67HqjPykTkKYqZKhaFhVS';

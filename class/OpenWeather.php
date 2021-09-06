@@ -1,4 +1,8 @@
 <?php
+namespace App;
+
+use \DateTime;
+use \Exception;
 require_once 'functions.php';
 
 /**

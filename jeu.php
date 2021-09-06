@@ -1,4 +1,5 @@
 <?php
+use App\Form;
 require './class/Form.php';
 require_once 'functions.php';
 $parfums = [

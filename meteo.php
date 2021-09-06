@@ -1,7 +1,12 @@
 <?php
+require 'vendor/autoload.php';
+
+use App\{
+  OpenWeather,
+  Form
+};
+
 require_once 'functions.php';
-require_once 'class/OpenWeather.php';
-require_once 'class/Form.php';
 $title = 'Météo';
 $weather = new OpenWeather('93105a5d5d6578b125296f230a1570fe');
 $location = (string)($_GET['ville'] ?? 'Paris,fr');

@@ -1,12 +1,13 @@
 <?php
-require_once 'class/Form.php';
+require 'vendor/autoload.php';
 require_once 'data/config.php';
 require_once 'functions.php';
-require_once 'class/Form.php';
+
+use App\Form;
+
 $title = 'Page de contact';
 date_default_timezone_set('Europe/Paris');
 $jour = (int)($_GET['jour'] ?? date('N') -1);
-dump($jour);
 $heure = (int)($_GET['heure'] ?? date('G'));
 $creneaux = CRENEAUX[$jour];
 $ouvert = in_creneaux($heure, $creneaux);

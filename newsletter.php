@@ -1,5 +1,6 @@
 <?php
 require_once 'functions.php';
+
 $title = 'Adhérer à la newsletter';
 $error = null;
 $success = null;
