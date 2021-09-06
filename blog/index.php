@@ -1,8 +1,11 @@
 <?php
-$title = 'blog';
+require 'vendor/autoload.php';
 require_once '../functions.php';
-require_once '../class/Post.php';
 require_once '../pdo.php';
+
+use App\Post;
+
+$title = 'blog';
 $error = null;
 try {
   if(isset($_POST['name'], $_POST['content'])) {
@@ -15,7 +18,7 @@ try {
     header('Location: blog/edit.php?id=' . $pdo->lastInsertId());
   }
   $query = $pdo->query('SELECT * from posts');
-  $posts = $query->fetchAll(PDO::FETCH_CLASS, 'Post');
+  $posts = $query->fetchAll(PDO::FETCH_CLASS, 'App\Post');
 } catch(PDOException $e) {
   $error = $e->getMessage();
 }

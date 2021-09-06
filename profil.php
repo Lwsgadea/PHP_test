@@ -1,5 +1,6 @@
 <?php
 require_once 'functions.php';
+
 $title = 'S\'enregistrer';
 $age = null;
 if(!empty($_POST['birthday'])) {
