@@ -13,6 +13,7 @@ $location = (string)($_GET['ville'] ?? 'Paris,fr');
 $latitude = (float)($_GET['latitude'] ?? 48.8534);
 $longitude = (float)($_GET['longitude'] ?? 2.3488);
 $error = null;
+$forecast = [];
 $hour_temp = [];
 $hour_time = [];
 try {

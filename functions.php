@@ -33,6 +33,7 @@ function nav_menu(string $linkClass = ''): string {
     nav_item('/jeu.php', 'Glace', $linkClass) . 
     nav_item('/newsletter.php', 'S\'inscrire', $linkClass) . 
     nav_item('/meteo.php', 'Météo', $linkClass) . 
+    nav_item('/blog/', 'Blog', $linkClass) .
     nav_item('/contact.php', 'Contact', $linkClass);
 }
 
